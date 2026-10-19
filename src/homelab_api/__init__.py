@@ -9,10 +9,7 @@ from contextlib import asynccontextmanager
 import uvicorn
 
 logger = logging.getLogger(__name__)
-global EXPORTER_URL
-EXPORTER_URL = os.getenv("EXPORTER_URL")
-if not EXPORTER_URL:
-    raise ValueError("Environment variable 'EXPORTER_URL' is not set")
+EXPORTER_URL = ""
 METRICS = ["pve_up", "pve_cpu_usage_ratio", "pve_memory_usage_bytes",
            "pve_memory_size_bytes", "pve_disk_usage_bytes",
            "pve_disk_size_bytes", "pve_exporter_scrape_success"]
@@ -117,6 +114,10 @@ async def summary():
     raise HTTPException(status_code=503, detail="Metrics unavailable")
 
 def main():
+    global EXPORTER_URL
+    EXPORTER_URL = os.getenv("EXPORTER_URL")
+    if not EXPORTER_URL:
+        raise ValueError("Environment variable 'EXPORTER_URL' is not set")
     PORT = os.getenv("PORT", 8000)
     log = logging.basicConfig(level=logging.INFO)
     uvicorn.run(app, host="0.0.0.0", port=int(PORT))
