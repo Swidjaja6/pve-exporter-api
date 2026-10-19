@@ -1,0 +1,57 @@
+# HELP pve_cpu_usage_ratio CPU usage (0-1)
+# TYPE pve_cpu_usage_ratio gauge
+pve_cpu_usage_ratio{id="qemu/100"} 0.0
+pve_cpu_usage_ratio{id="qemu/101"} 0.0118497499026542
+pve_cpu_usage_ratio{id="qemu/102"} 0.0
+pve_cpu_usage_ratio{id="qemu/103"} 0.00864044263735201
+pve_cpu_usage_ratio{id="lxc/104"} 0.0
+pve_cpu_usage_ratio{id="node/pve"} 0.00952380952380952
+# HELP pve_memory_usage_bytes Memory in use
+# TYPE pve_memory_usage_bytes gauge
+pve_memory_usage_bytes{id="qemu/100"} 0.0
+pve_memory_usage_bytes{id="qemu/101"} 1.826115584e+09
+pve_memory_usage_bytes{id="qemu/102"} 0.0
+pve_memory_usage_bytes{id="qemu/103"} 2.207494144e+09
+pve_memory_usage_bytes{id="lxc/104"} 0.0
+pve_memory_usage_bytes{id="node/pve"} 8.173903872e+09
+# HELP pve_memory_size_bytes Memory allocated
+# TYPE pve_memory_size_bytes gauge
+pve_memory_size_bytes{id="qemu/100"} 8.589934592e+09
+pve_memory_size_bytes{id="qemu/101"} 2.147483648e+09
+pve_memory_size_bytes{id="qemu/102"} 4.294967296e+09
+pve_memory_size_bytes{id="qemu/103"} 1.5999172608e+10
+pve_memory_size_bytes{id="lxc/104"} 5.36870912e+08
+pve_memory_size_bytes{id="node/pve"} 3.3527832576e+10
+# HELP pve_disk_usage_bytes Disk usage in bytes
+# TYPE pve_disk_usage_bytes gauge
+pve_disk_usage_bytes{id="qemu/100"} 0.0
+pve_disk_usage_bytes{id="qemu/101"} 0.0
+pve_disk_usage_bytes{id="qemu/102"} 0.0
+pve_disk_usage_bytes{id="qemu/103"} 0.0
+pve_disk_usage_bytes{id="lxc/104"} 0.0
+pve_disk_usage_bytes{id="node/pve"} 5.5683551232e+10
+pve_disk_usage_bytes{id="storage/pve/local"} 5.5683551232e+10
+pve_disk_usage_bytes{id="storage/pve/local-lvm"} 8.666431986e+10
+# HELP pve_disk_size_bytes Disk size in bytes
+# TYPE pve_disk_size_bytes gauge
+pve_disk_size_bytes{id="qemu/100"} 3.4359738368e+10
+pve_disk_size_bytes{id="qemu/101"} 3.4359738368e+10
+pve_disk_size_bytes{id="qemu/102"} 3.4359738368e+10
+pve_disk_size_bytes{id="qemu/103"} 5.36870912e+10
+pve_disk_size_bytes{id="lxc/104"} 4.294967296e+09
+pve_disk_size_bytes{id="node/pve"} 1.0086172672e+11
+pve_disk_size_bytes{id="storage/pve/local"} 1.0086172672e+11
+pve_disk_size_bytes{id="storage/pve/local-lvm"} 3.73553102848e+11
+# HELP pve_up 1 if the resource is up, 0 otherwise
+# TYPE pve_up gauge
+pve_up{id="qemu/100"} 0.0
+pve_up{id="qemu/101"} 1.0
+pve_up{id="qemu/102"} 0.0
+pve_up{id="qemu/103"} 1.0
+pve_up{id="lxc/104"} 0.0
+pve_up{id="node/pve"} 1.0
+pve_up{id="storage/pve/local"} 1.0
+pve_up{id="storage/pve/local-lvm"} 1.0
+# HELP pve_exporter_scrape_success Prints 1 if the Proxmox API call succeeded, else 0
+# TYPE pve_exporter_scrape_success gauge
+pve_exporter_scrape_success 1.0
