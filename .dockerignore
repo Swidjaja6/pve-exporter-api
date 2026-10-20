@@ -1,0 +1,7 @@
+.env
+.venv
+.vibe-wise
+tests/
+.git
+.pytest_cache/
+**/__pycache__
