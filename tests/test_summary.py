@@ -46,7 +46,8 @@ def test_happy_path():
         "memory_used_raw": 8173903872,
         "memory_used": 7.61,
         "memory_total": 33527832576,
-        "storage_used": 142347871092,
+        "storage_used_raw": 142347871092,
+        "storage_used": 132.57,
         "total_storage": 1.0086172672e11 + 3.73553102848e11
     })
 
@@ -60,7 +61,7 @@ def test_zero_storage_used_is_valid():
     text = set_value(SAMPLE, "pve_disk_usage_bytes", 0.0, "storage/pve/local")
     text = set_value(text, "pve_disk_usage_bytes", 0.0, "storage/pve/local-lvm")
     output = parse(text)
-    assert output.storage_used == 0.0
+    assert output.storage_used_raw == 0.0
 
 
 # --- parse: each fail rule raises ---------------------------------------------
