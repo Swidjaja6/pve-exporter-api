@@ -21,7 +21,7 @@ class Summary(BaseModel):
     cpu_raw: float
     memory_used_raw: float
     memory_total: float
-    storage_used: float
+    storage_used_raw: float
     total_storage: float
 
     @computed_field
@@ -30,12 +30,15 @@ class Summary(BaseModel):
     @computed_field
     def memory_used(self) -> float:
         return round(self.memory_used_raw / 1024 ** 3, 2)
+    @computed_field
+    def storage_used(self) -> float:
+        return round(self.storage_used_raw / 1024 ** 3, 2)
 
 def parse(text):
     scrape_success = False
     running_vms = 0
     cpu_raw, memory_used_raw, memory_total = None, None, None
-    storage_used, total_storage = 0.0, 0.0
+    storage_used_raw, total_storage = 0.0, 0.0
     storage_used_instances, total_storage_instances = set(), set()
     for family in text_string_to_metric_families(text):
         for sample in family.samples:
@@ -57,7 +60,7 @@ def parse(text):
                         memory_total = sample.value
                 case "pve_disk_usage_bytes":
                     if(sample.labels["id"].startswith("storage/")):
-                        storage_used += sample.value
+                        storage_used_raw += sample.value
                         storage_used_instances.add(sample.labels["id"])
                 case "pve_disk_size_bytes":
                     if(sample.labels["id"].startswith("storage/")):
@@ -81,7 +84,7 @@ def parse(text):
         cpu_raw=cpu_raw,
         memory_used_raw=memory_used_raw,
         memory_total=memory_total,
-        storage_used=storage_used,
+        storage_used_raw=storage_used_raw,
         total_storage=total_storage
     )
 
